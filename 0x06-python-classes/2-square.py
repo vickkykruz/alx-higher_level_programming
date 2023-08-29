@@ -8,7 +8,7 @@ class Square:
     def __init__(self, size=0):
         """ This is a method that define the init function of the size """
 
-        if not isinstance(size, int):
+        if type(size) is not int:
             raise TypeError("size must be an integer")
 
         if size < 0:
