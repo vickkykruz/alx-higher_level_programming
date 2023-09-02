@@ -1,0 +1,42 @@
+This ``add_integer`` module
+===========================
+
+Using ``add_integer``
+---------------------
+
+This is an example text file in reStructuredText format. 
+First import ``add_integer`` from the ``0-add_integer`` module:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+	>>> add_integer(1, 2)
+	3
+	>>> add_integer(100, -2)
+	98
+	>>> add_integer(2)
+	100
+	>>> add_integer(4, "School")
+	Traceback (innermost last):
+		...
+	TypeError: b must be an integer
+	>>> add_integer("Alx", 67)
+	Traceback (innermost last):
+		...
+	TypeError: a must be an integer
+	>>> add_integer(98, True)
+	Traceback (innermost last):
+		...
+	TypeError: b must be an integer
+	>>> a = [0, 2, -5, -55, -2, .5]
+	>>> b = [10, 5.99, 0, 50, -17, -10.2]
+	>>> result = [add_integer(a[i], b[i]) for i in range(6)]
+	>>> result
+	[10, 7, -5, -5, -19, -10]
+	>>> add_integer(67, float("nan"))
+	Traceback (innermost last):
+		...
+	ValueError: cannot convert float NaN to integer
+	>>> add_integer(float("1.7e+400"), 7)
+	Traceback (innermost last):
+		...
+	OverflowError: cannot convert float infinity to integer
