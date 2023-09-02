@@ -1,0 +1,34 @@
+This ``3-say_my_name`` module
+=============================
+
+Using ``say_my_name``
+-----------------------
+
+This is a 3-say_my_name text file in reStructuredText format.
+First import ``say_my_name`` from the ``3-say_my_name`` module:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now use it
+	>>> say_my_name("Victor", "Chukwuemeka")
+	My name is Victor Chukwuemeka
+
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+
+	>>> say_my_name("Bob")
+	My name is Bob 
+
+	>> say_my_name(True, "Edward")
+	Traceback (innermost last):
+		...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Adeola", 50)
+	Traceback (innermost last):
+		...
+	TypeError: last_name must be a string
+
+	>>> say_my_name(78.9)
+	Traceback (innermost last):
+		...
+	TypeError: first_name must be a string
