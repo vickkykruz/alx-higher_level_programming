@@ -1,0 +1,69 @@
+This ``2-matrix_divided`` module
+==============================
+
+Using ``matrix_divided``
+------------------------
+
+This is a`n matrix_divided file in reStructuredText format.
+First import ``matrix_divided`` from the ``2-matrix_divided`` module:
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now use it:
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	...	]
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	>>> matrix
+	[[1, 2, 3], [4, 5, 6]]
+
+	>>> matrix = [
+	...	[12, 10, 8],
+	...	[6, 4, 2]
+	...	]
+	>>> matrix_divided(matrix, 2)
+	[[6.00, 5.00, 4.00], [3.00, 2.00, 1.00]]
+	>>> matrix
+	[[12, 10, 8], [6, 4, 2]]
+
+	>>> matrix = [
+	...	["Victor", 4, 10],
+	...	[14, "ALX", 6.0]
+	...	]
+	>>> matrix_divided(matrix, 2)
+	Traceback (innermost last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> matrix
+	[["Victor", 4, 10], [14, "ALX", 6.0]]
+
+	>>> matrix = [
+	...	[2.0, 10.0, 14.0],
+	...	[1.2, 1.5],
+	...	[4.9, 3.5, 9.0]
+	...	]
+	>>> matrix_divided(matrix, 3)
+	Traceback (innermost last):
+		...
+	TypeError: Each row of the matrix must have the same size
+	>>> matrix
+	[[2.0, 10.0, 14.0], [1.2, 1.5], [4.9, 3.5, 9.0]]
+
+	>>> matrix = [
+        ...     [2.0, 10.0, 14.0],
+        ...     [1.2, 1.5, 1.0],
+        ...     [4.9, 3.5, 9.0]
+        ...     ]
+        >>> matrix_divided(matrix, "Dog")
+        Traceback (innermost last):
+                ...
+        TypeError: div must be a number
+        >>> matrix
+        [[2.0, 10.0, 14.0], [1.2, 1.5, 1.0], [4.9, 3.5, 9.0]]
+
+        >>> matrix_divided(matrix, 0)
+        Traceback (innermost last):
+                ...
+        ZeroDivisionError: division by zero
+
