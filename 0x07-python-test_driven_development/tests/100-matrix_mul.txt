@@ -1,0 +1,54 @@
+This ``100-matrix_mul`` module
+==============================
+
+Using matrix_mul
+----------------
+
+This is a 100-matrix_mul text file in reStructuredText format.
+First import the ``matrix_mul`` from the ``100-matrix_mul`` module:
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now use it:
+	>>> m_a = [
+	...	[1, 2],
+	...	[3, 4]
+	...	]
+	>>> m_b = [
+	...	[1, 2],
+	...	[3, 4]
+	...	]
+	>>> matrix_mul(m_a, m_b)
+	[[7, 10], [15, 22]]
+
+	>>> m_b = "ALX Africa"
+	>>> matrix_mul(m_a, m_b)
+	Traceback (innermost last):
+		...
+	TypeError: m_b must be a list
+
+	>>> m_b = [
+	...	[1, 2],
+	...	[3, 4]
+	...	]
+	>>> m_a = [
+	...	"Victor Chukwuemeka",
+	...	[3, 4]
+	...	]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (innermost last):
+		...
+	TypeError: m_a must be a list of lists
+
+        >>> m_a = [
+        ...     [1, 2],
+        ...     [3, 4]
+        ...     ]
+	>>> m_b = [
+        ...     ["Victor", "Chukwuemeka"],
+        ...     [4, 8]
+        ...     ]
+        >>> matrix_mul(m_a, m_b)
+        Traceback (innermost last):
+                ...
+        TypeError: m_b should contain only integers or floats
+
