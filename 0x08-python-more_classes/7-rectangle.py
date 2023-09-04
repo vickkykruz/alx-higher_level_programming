@@ -1,0 +1,88 @@
+#!/usr/bin/python3
+"""
+    This is a 6-rectangle module
+"""
+
+
+class Rectangle:
+    """ This is a class Rectangle that hold the block code """
+    number_of_instances = 0
+
+    def __init__(self, width=0, height=0):
+        """ This is the initiazed method """
+
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
+    def __str__(self):
+        """ This is a method that return the string reprsentation """
+        s = ""
+
+        if self.perimeter() == 0:
+            return s
+
+        for i in range(self.__height):
+            for j in range(self.__width):
+                s += "#"
+
+            if i < self.__height - 1:
+                s += "\n"
+        return s
+
+    def __repr__(self):
+        """
+        This is a method that return the string representation to able
+        recreate
+        """
+
+        s = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
+        return s
+
+    def __del__(self):
+        """ This is method is called when an instance is delected """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+
+    @property
+    def width(self):
+        """ Return the width retrive value """
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """ Return the set value of width """
+
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+
+        if value < 0:
+            raise ValueError("width must be >= 0")
+
+        self.__width = value
+
+    @property
+    def height(self):
+        """ Return the height reterivr value """
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """ Return the set value of height """
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
+
+    def area(self):
+        """ Return the calculate area value """
+        res = self.__width * self.__height
+        return res
+
+    def perimeter(self):
+        """ Return the calculated Perimeter of a rectangle """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        res = 2 * (self.__width + self.__height)
+        return res
