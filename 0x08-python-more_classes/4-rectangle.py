@@ -29,7 +29,7 @@ class Rectangle:
         This is a method that return the string reprsentation
         """
 
-        s = "Rectangle(" + str(self.__width) + str(self.__height) + ")"
+        s = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
         return s
 
     @property
