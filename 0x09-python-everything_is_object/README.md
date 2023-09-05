@@ -35,3 +35,10 @@
 28. Same or not?
 
 ### Advance Tasks
+
+29. #pythonic
+30. Low memory cost
+31. int 1/3
+32. int 2/3
+33. int 3/3
+34. Clear strings
