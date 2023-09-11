@@ -1,0 +1,40 @@
+This is a ``base_geometry`` module
+==================================
+
+Using ``BaseGeometry``
+---------------------
+
+This is text file in reStructuredText format.
+First import ``BaseGeometry`` from ``7-base_geometry`` module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (innermost last):
+		...
+	Exception: area() is not implemented
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", "100")
+	Traceback (innermost last):
+		...
+	TypeError: name must be an integer
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", [2, 3])
+	Traceback (innermost last):
+		...
+	TypeError: name must be an integer
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", True)
+	Traceback (innermost last):
+		...
+	TypeError: name must be an integer
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", -100)
+	Traceback (innermost last):
+		...
+	ValueError: name must be greater than 0
