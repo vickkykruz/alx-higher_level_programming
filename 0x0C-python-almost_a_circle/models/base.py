@@ -43,6 +43,21 @@ class Base:
         with open(file_name, 'w', encoding="utf-8") as fd:
             fd.write(json_str)
 
+    @classmethod
+    def create(cls, **dictionary):
+        """ This is a method that return an instance with all attributes
+            already set
+        """
+
+        if cls.__name__ == "Rectangle":
+            new_ins = cls(1, 1)
+
+        if cls.__name__ == "Square":
+            new_ins = cls(1)
+
+        new_ins.update(**dictionary)
+        return new_ins
+
 
     @staticmethod
     def to_json_string(list_dictionaries):
