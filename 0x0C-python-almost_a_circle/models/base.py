@@ -54,3 +54,14 @@ class Base:
             return json.dumps([])
         else:
             return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ This is a method that return the list of the JSON string
+            reprsentation json_string
+        """
+
+        if not json_string:
+            return json.loads([])
+        else:
+            return json.loads(json_string)
