@@ -58,6 +58,27 @@ class Base:
         new_ins.update(**dictionary)
         return new_ins
 
+    @classmethod
+    def load_from_file(cls):
+        """ This is a method that returns a list of instance """
+
+        new_list = []
+        file_name = cls.__name__ + '.json'
+
+        try:
+            with open(file_name,  encoding="utf-8") as fd:
+                json_str = fd.read()
+        except FileNotFoundError:
+            return new_list
+        else:
+            list_dic = Base.from_json_string(json_str)
+
+        for obj in list_dic:
+            new_ins = cls.create(**obj)
+            new_list.append(new_ins)
+
+        return new_list
+
 
     @staticmethod
     def to_json_string(list_dictionaries):
