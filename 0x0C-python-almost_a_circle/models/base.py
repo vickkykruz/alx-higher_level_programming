@@ -7,6 +7,9 @@
 """
 
 
+import json
+
+
 class Base:
     """ This is a class Base that implemant the following """
 
@@ -20,3 +23,14 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ This is a method that return the JSON string reprsentation of
+            list_dictionaries
+        """
+
+        if not list_dictionaries:
+            return json.dumps([])
+        else:
+            return json.dumps(list_dictionaries)
