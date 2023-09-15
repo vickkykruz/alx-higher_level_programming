@@ -123,3 +123,18 @@ class Rectangle(Base):
                 i += 1
                 if i > 4:
                     break
+
+    def to_dictionary(self):
+        """ This is a method that return the dictionary representation of a
+            Rectangle
+        """
+
+        attrs = ["id", "width", "height", "x", "y"]
+        dic_t = {}
+
+        for attr in attrs:
+            val = getattr(self, attr)
+
+            dic_t[attr] = val
+
+        return dic_t
