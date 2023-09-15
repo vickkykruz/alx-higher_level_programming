@@ -51,3 +51,18 @@ class Square(Rectangle):
                 i += 1
                 if i > 3:
                     break
+
+    def to_dictionary(self):
+        """ This is a method that return the dictionary reprsentation of a
+            Square
+        """
+
+        attrs = ["id", "size", "x", "y"]
+        dic_t = {}
+
+        for attr in attrs:
+            val = getattr(self, attr)
+
+            dic_t[attr] = val
+
+        return dic_t
