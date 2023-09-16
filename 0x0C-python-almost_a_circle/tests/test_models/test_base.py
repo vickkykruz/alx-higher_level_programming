@@ -1,6 +1,8 @@
 import unittest
 import json
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class BaseTest(unittest.TestCase):
@@ -47,5 +49,27 @@ class BaseTest(unittest.TestCase):
             self.assertEqual(b_json, json.dumps(list_dic))
             self.assertTrue(type(b_json) is str)
             self.assertEqual(Base.to_json_string(None), "[]")
-
+            
+        def test_base_from_json_strng_more_args(self):
+            """ This is a method that test for the from_json_string with more
+                args
+            """
+            
+            rect1 = Rectangle(5, 4)
+            squ1 = Square(5)
+            
+            with self.assertRaises(TypeError):
+                Base.from_json_string([rect1.to_dictionary()],
+                                      [squ1.to_dictionary()])
+                
+        def test_base_from_json_string_no_args(self):
+            """ This is a method that test for the from_json_string with no
+                args
+            """
+            
+            rect1 = Rectangle(5, 4)
+            squ1 = Square(5)
+            
+            with self.assertRaises(TypeError):
+                Base.to_json_string()
 
