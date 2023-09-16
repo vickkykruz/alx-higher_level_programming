@@ -1,4 +1,5 @@
 import unittest
+import json
 from models.base import Base
 
 
@@ -27,5 +28,24 @@ class BaseTest(unittest.TestCase):
             self.assetEqual(b6.id, -10)
             b7 = Base(0)
             self.assetEqual(b7.id, 0)
+
+        def test_base_id_args(self):
+            """ This is a test case that test more args """
+
+            with self.assertRaises(TypeError):
+                ba1 = Base(1, 4)
+
+        def test_base_to_json_string(self):
+            """ This is a method that test the to_json_string """
+
+            list_dic = [
+                    {"id": 1, "height": 5, "width": 4, "x": 0, "y": 0},
+                    {"id": 2, "height": 15, "width": 5, "x": 2, "y": 0}
+                ]
+
+            b_json = Base.to_json_string(list_dic)
+            self.assertEqual(b_json, json.dumps(list_dic))
+            self.assertTrue(type(b_json) is str)
+            self.assertEqual(Base.to_json_string(None), "[]")
 
 
