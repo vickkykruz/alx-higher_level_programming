@@ -8,6 +8,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -44,6 +45,60 @@ class Base:
             fd.write(json_str)
 
     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ This is a method that save to file """
+        filename = cls.__name__ + '.csv'
+        new_list = []
+        attrs = ["id", "size", "width", "height", "x", "y"]
+
+        if list_objs:
+            for obj in list_objs:
+                obj_dict = obj.to_dictionary()
+                row = []
+
+                for attr in attrs:
+                    try:
+                        row.append(obj_dict[attr])
+                    except KeyError:
+                        pass
+                    new_list.append(row)
+
+        with open(filename, 'w', encoding="utf-8") as fd:
+            csv_write = csv.writer(fd, delimiter=",")
+
+            if new_list:
+                for row in new_list:
+                    csv_write.writerow(row)
+            else:
+                csv_write.writerow(["[]"])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ This is a method that load file from csv """
+
+        filename = cls.__name__ + '.csv'
+
+        try:
+            with open(filename, 'r', encoding="utf-8") as fd:
+                if cls.__name__ == "Rectangle":
+                    field_keys = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == "Square":
+                    field_keys = ["id", "size", "x", "y"]
+
+                reader = csv.DictReader(fd, fieldnames=field_keys)
+                new_list = []
+
+                for row in reader:
+                    for attr in field_keys:
+                        row[attr] = int(row[attr])
+
+                    new_ins = cls.create(**row)
+                    new_list.append(new_ins)
+        except FileNotFoundError:
+            return []
+        return new_list
+
+    @classmethod
     def create(cls, **dictionary):
         """ This is a method that return an instance with all attributes
             already set
@@ -78,7 +133,6 @@ class Base:
             new_list.append(new_ins)
 
         return new_list
-
 
     @staticmethod
     def to_json_string(list_dictionaries):
