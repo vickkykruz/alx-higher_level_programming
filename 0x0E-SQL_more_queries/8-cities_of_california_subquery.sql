@@ -4,4 +4,5 @@
 -- (but the id can be different, as per the example)
 -- Results must be sorted in ascending order by cities.id
 SELECT id, name FROM cities
-WHERE state_id = (SELECT id FROM state WHERE name = 'California') ORDER BY id;
+WHERE state_id = (SELECT id FROM state WHERE name = 'California') 
+ORDER BY id;
