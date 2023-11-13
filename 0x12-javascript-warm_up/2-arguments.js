@@ -6,6 +6,6 @@
 
 const args = process.argv.slice(2);
 
-if (!args.lenght) console.log('No argument');
-else if (args.lenght === 1) console.log('Argument found');
+if (!args.length) console.log('No argument');
+else if (args.length === 1) console.log('Argument found');
 else console.log('Arguments found');
