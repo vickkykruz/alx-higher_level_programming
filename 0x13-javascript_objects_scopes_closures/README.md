@@ -14,3 +14,8 @@
 8. Esrever
 9. Log me
 10. Number conversion
+
+### Advance Tasks
+11. Factor index
+12. Sorted occurences
+13. Concat files
