@@ -14,8 +14,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     cur.execute(
-            """SELECT states.id, states.name
-            FROM states ORDER BY states.id ASC""")
+            """SELECT * FROM states ORDER BY states.id ASC""")
 
     # To fetch the data
     row = cur.fetchall()
