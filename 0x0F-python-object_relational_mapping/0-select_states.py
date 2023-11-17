@@ -1,23 +1,32 @@
 #!/usr/bin/python3
+"""
+Write a script that lists all states from the database hbtn_0e_0_usa:
+    => Your script should take 3 arguments: mysql username, mysql password
+        and database name
+    => mysql password and database name (no argument validation needed)
+    => Your script should connect to a MySQL server running on localhost
+        at port 3306
+    => Results must be sorted in ascending order by states.id
+"""
 
-if __name__ == "__main__":
-    import MySQLdb
-    import sys
 
-    # To handle the connection that takes 3 arguments
-    db = MySQLdb.connect(
-            host='localhost',
-            user='{}'.format(sys.argv[1]),
-            password='{}'.format(sys.argv[2]),
-            database='{}'.format(sys.argv[3]),
-            port=3306)
-    cur = db.cursor()
+import MySQLdb
+import sys
 
-    cur.execute(
-            """SELECT * FROM states ORDER BY states.id ASC""")
+# To handle the connection that takes 3 arguments
+db = MySQLdb.connect(
+        host='localhost',
+        user='{}'.format(sys.argv[1]),
+        password='{}'.format(sys.argv[2]),
+        database='{}'.format(sys.argv[3]),
+        port=3306)
+cur = db.cursor()
 
-    # To fetch the data
-    row = cur.fetchall()
+cur.execute(
+        """SELECT * FROM states ORDER BY states.id ASC""")
 
-    for data in row:
-        print(data)
+# To fetch the data
+row = cur.fetchall()
+
+for data in row:
+    print(data)
