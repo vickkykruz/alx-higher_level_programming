@@ -17,3 +17,9 @@
 11. Add a new state
 12. Update a state
 13. Delete states
+14. Cities in state
+
+### Advance Tasks
+15. City relationship
+16. List relationship
+17. From city
