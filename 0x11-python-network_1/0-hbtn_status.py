@@ -15,6 +15,6 @@ if __name__ == "__main__":
         this_output = response.read()
 
         print('Body response:')
-        print('\t - type: {}'.format(type(this_output)))
-        print('\t - content: {}'.format(this_output))
-        print('\t -utf8 content: {}'.format(this_output.decode("utf-8")))
+        print('\t- type: {}'.format(type(this_output)))
+        print('\t- content: {}'.format(this_output))
+        print('\t- utf8 content: {}'.format(this_output.decode("utf-8")))
