@@ -18,7 +18,7 @@ if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
     value = {'q': q}
 
-    response = requests.get(url, value)
+    response = requests.post(url, value)
 
     try:
         response_json = response.json()
