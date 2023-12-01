@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     url = "https://api.github.com/user"
     header = {
-            "Authorization": "Bearer {}".format(sys.argv[1]),
+            "Authorization": "Bearer {}".format(sys.argv[2]),
             "X-GitHub-Api-Version": "2022-11-28"}
 
     response = requests.get(url, headers=header)
