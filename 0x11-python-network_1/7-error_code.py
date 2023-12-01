@@ -16,4 +16,4 @@ if __name__ == "__main__":
     try:
         print(response.text)
     except HTTPError as err:
-        print(err.status_code)
+        print(response.status_code)
